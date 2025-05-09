@@ -22,8 +22,8 @@ full_auto_interface = gr.Interface(
         gr.Radio(['auto', 'cuda', 'cpu'], label='计算设备', value='auto'),
         gr.Slider(minimum=0, maximum=10, step=1, label='移位次数 Number of shifts', value=5),
 
-        gr.Dropdown(['WhisperX', 'FunASR'], label='ASR模型选择', value='WhisperX'),
-        gr.Radio(['large', 'medium', 'small', 'base', 'tiny'], label='WhisperX模型大小', value='large'),
+        gr.Dropdown([ 'FunASR'], label='ASR模型选择', value='FunASR'),
+        gr.Radio(['large', 'medium', 'small', 'base', 'tiny'], label='WhisperX模型大小', value='large',visible=False, interactive=False),
         gr.Slider(minimum=1, maximum=128, step=1, label='批处理大小 Batch Size', value=32),
         gr.Checkbox(label='分离多个说话人', value=True),
         gr.Radio([None, 1, 2, 3, 4, 5, 6, 7, 8, 9], label='最小说话人数', value=None),
@@ -93,8 +93,8 @@ asr_inference = gr.Interface(
     fn=transcribe_all_audio_under_folder,
     inputs=[
         gr.Textbox(label='视频文件夹', value='videos'),
-        gr.Dropdown(['WhisperX', 'FunASR'], label='ASR模型选择', value='WhisperX'),
-        gr.Radio(['large', 'medium', 'small', 'base', 'tiny'], label='WhisperX模型大小', value='large'),
+        gr.Dropdown([ 'FunASR'], label='ASR模型选择', value='FunASR'),
+        gr.Radio(['large', 'medium', 'small', 'base', 'tiny'], label='WhisperX模型大小', value='large',visible=False, interactive=False),
         gr.Radio(['auto', 'cuda', 'cpu'], label='计算设备', value='auto'),
         gr.Slider(minimum=1, maximum=128, step=1, label='批处理大小 Batch Size', value=32),
         gr.Checkbox(label='分离多个说话人', value=True),

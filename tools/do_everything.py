@@ -257,7 +257,7 @@ def process_video(info, root_folder, resolution,
 
 def do_everything(root_folder, url, num_videos=5, resolution='1080p',
                   demucs_model='htdemucs_ft', device='auto', shifts=5,
-                  asr_method='WhisperX', whisper_model='large', batch_size=32, diarization=False,
+                  asr_method='FunASR', whisper_model='large', batch_size=32, diarization=False,
                   whisper_min_speakers=None, whisper_max_speakers=None,
                   translation_method='LLM', translation_target_language='简体中文',
                   tts_method='xtts', tts_target_language='中文', voice='zh-CN-XiaoxiaoNeural',
@@ -280,7 +280,7 @@ def do_everything(root_folder, url, num_videos=5, resolution='1080p',
         logger.info(f"开始处理任务: {url}")
         logger.info(f"参数: 输出文件夹={root_folder}, 视频数量={num_videos}, 分辨率={resolution}")
         logger.info(f"人声分离: 模型={demucs_model}, 设备={device}, 移位次数={shifts}")
-        logger.info(f"语音识别: 方法={asr_method}, 模型={whisper_model}, 批大小={batch_size}")
+        logger.info(f"语音识别: 方法={asr_method}, 批大小={batch_size}")
         logger.info(f"翻译: 方法={translation_method}, 目标语言={translation_target_language}")
         logger.info(f"语音合成: 方法={tts_method}, 目标语言={tts_target_language}, 声音={voice}")
         logger.info(f"视频合成: 字幕={subtitles}, 速度={speed_up}, FPS={fps}, 分辨率={target_resolution}")
